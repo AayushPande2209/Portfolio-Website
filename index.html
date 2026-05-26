@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aayush Pande</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Mono:wght@400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset & Base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #0a1a30;
+      --surface:  #0d2240;
+      --accent:   #7b1225;
+      --mid:      #a0aabb;
+      --text:     #f0ede6;
+      --muted:    rgba(240,237,230,0.6);
+      --border:   rgba(240,237,230,0.12);
+      --gold:     #c9a84c;
+      --serif:    'Cormorant Garamond', Georgia, serif;
+      --sans:     'DM Sans', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-weight: 300;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── Nav ───────────────────────────────────────────────────────── */
+    #nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3rem;
+      height: 64px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    #nav .nav-brand {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      color: var(--text);
+    }
+
+    #nav .nav-links {
+      display: flex;
+      gap: 2.4rem;
+      list-style: none;
+    }
+
+    #nav .nav-links a {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      transition: color 0.2s;
+      padding-bottom: 2px;
+      border-bottom: 1px solid transparent;
+    }
+
+    #nav .nav-links a:hover,
+    #nav .nav-links a.active {
+      color: var(--text);
+      border-bottom-color: var(--gold);
+    }
+
+    /* ─── Eyebrow ────────────────────────────────────────────────────── */
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .eyebrow::before,
+    .eyebrow::after {
+      content: '';
+      display: block;
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    /* ─── Section Labels (01, 02 …) ─────────────────────────────────── */
+    .section-label {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-number {
+      font-family: var(--serif);
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      line-height: 1.1;
+      color: var(--text);
+    }
+
+    /* ─── Hero ──────────────────────────────────────────────────────── */
+    #hero {
+      height: 100vh;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+
+    .hero-name {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(5rem, 14vw, 11rem);
+      line-height: 0.92;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+
+    .hero-name em {
+      font-style: italic;
+      color: var(--muted);
+    }
+
+    .hero-name .slash {
+      color: var(--gold);
+      font-style: normal;
+      font-size: 0.7em;
+    }
+
+    .hero-sub {
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 48px;
+      background: var(--muted);
+      animation: scrollPulse 1.8s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50%       { opacity: 1; }
+    }
+
+    /* ─── Sections ──────────────────────────────────────────────────── */
+    section {
+      border-bottom: 1px solid var(--border);
+      padding: 6rem 3rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    section + section { margin-top: 0; }
+
+    /* make sections full-width containers with inner padding */
+    .section-wrap {
+      border-bottom: 1px solid var(--border);
+      padding: 0;
+    }
+
+    .section-wrap > section {
+      border-bottom: none;
+    }
+
+    /* ─── About ─────────────────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 5rem;
+      align-items: start;
+      margin-top: 3.5rem;
+    }
+
+    .about-bio p {
+      font-family: var(--sans);
+      font-size: 1.08rem;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--text);
+      max-width: 52ch;
+    }
+
+    .about-bio p + p { margin-top: 1.2rem; }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border: 1px solid var(--border);
+      filter: grayscale(18%);
+    }
+
+    .stat-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      background: var(--border);
+    }
+
+    .stat-card {
+      background: var(--surface);
+      padding: 1.6rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .stat-number {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 2.6rem;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-family: var(--sans);
+      font-size: 0.7rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── Projects Grid ─────────────────────────────────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 3.5rem;
+    }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 380px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2rem;
+      cursor: pointer;
+    }
+
+    .project-card-bg {
+      position: absolute;
+      inset: 0;
+      transition: transform 0.5s ease;
+      z-index: 0;
+    }
+
+    .project-card:hover .project-card-bg {
+      transform: scale(1.03);
+    }
+
+    .project-card-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(5, 10, 20, 0.55);
+      z-index: 1;
+    }
+
+    .project-card-top {
+      position: absolute;
+      top: 1.8rem;
+      left: 2rem;
+      right: 2rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      z-index: 2;
+    }
+
+    .card-label {
+      font-family: var(--sans);
+      font-size: 0.64rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .card-link-btn {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--border);
+      background: rgba(10,26,48,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text);
+      font-size: 1rem;
+      transition: background 0.2s, border-color 0.2s;
+      flex-shrink: 0;
+    }
+
+    .card-link-btn:hover { background: var(--accent); border-color: var(--accent); }
+
+    .project-card-body { position: relative; z-index: 2; }
+
+    .project-title {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 0.65rem;
+    }
+
+    .project-desc {
+      font-family: var(--sans);
+      font-size: 0.82rem;
+      font-weight: 300;
+      color: var(--muted);
+      line-height: 1.6;
+      max-width: 46ch;
+    }
+
+    /* ─── Skills ────────────────────────────────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 3.5rem;
+    }
+
+    .skill-col {
+      background: var(--surface);
+      padding: 2.4rem 2rem;
+    }
+
+    .skill-col-label {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.6rem;
+    }
+
+    .skill-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .skill-list li {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 1.35rem;
+      color: var(--text);
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.2;
+    }
+
+    .skill-list li:last-child { border-bottom: none; }
+
+    .honors-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 1px;
+    }
+
+    .honor-block {
+      background: var(--bg);
+      padding: 1.8rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .honor-title {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: 1.25rem;
+      color: var(--text);
+    }
+
+    .honor-meta {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── Leadership ─────────────────────────────────────────────────── */
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--border);
+      margin-top: 3.5rem;
+    }
+
+    /* ─── Contact ────────────────────────────────────────────────────── */
+    #contact {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2rem;
+      padding: 8rem 3rem;
+    }
+
+    .contact-headline {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      line-height: 1.05;
+      color: var(--text);
+    }
+
+    .contact-headline em { font-style: italic; color: var(--muted); }
+
+    .contact-sub {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: var(--muted);
+      max-width: 44ch;
+      line-height: 1.7;
+    }
+
+    .contact-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 0.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: var(--bg);
+      border-color: var(--text);
+    }
+
+    .btn-primary:hover { background: var(--gold); border-color: var(--gold); color: var(--bg); }
+    .btn:not(.btn-primary):hover { background: var(--surface); color: var(--text); border-color: rgba(240,237,230,0.3); }
+
+    /* ─── Footer ─────────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.8rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer span {
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── Back to Top ────────────────────────────────────────────────── */
+    #back-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      z-index: 200;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, background 0.2s;
+    }
+
+    #back-top.visible { opacity: 1; pointer-events: auto; }
+    #back-top:hover { background: var(--accent); border-color: var(--accent); }
+
+    /* ─── Responsive ─────────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      #nav { padding: 0 1.5rem; }
+      #nav .nav-links { display: none; }
+
+      section { padding: 4rem 1.5rem; }
+      #contact { padding: 5rem 1.5rem; }
+      footer { padding: 1.4rem 1.5rem; }
+
+      .hero-name { font-size: clamp(3.5rem, 18vw, 6rem); }
+
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-photo { aspect-ratio: 4 / 3; object-position: center 20%; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .honors-strip { grid-template-columns: 1fr; }
+      .leadership-grid { grid-template-columns: 1fr; }
+
+      .project-card { min-height: 300px; }
+    }
+
+    @media (max-width: 500px) {
+      .contact-buttons { flex-direction: column; align-items: stretch; }
+      .btn { justify-content: center; }
+    }
+
+    /* ─── Modal ──────────────────────────────────────────────────────── */
+    #modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 500;
+      background: rgba(5, 12, 25, 0.85);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s ease;
+    }
+
+    #modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    #modal {
+      background: #0d2240;
+      border: 1px solid rgba(240,237,230,0.12);
+      width: 100%;
+      max-width: 680px;
+      padding: 2.5rem;
+      position: relative;
+      transform: translateY(18px);
+      transition: transform 0.28s ease;
+    }
+
+    #modal-backdrop.open #modal {
+      transform: translateY(0);
+    }
+
+    #modal-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 1px solid rgba(240,237,230,0.2);
+      background: transparent;
+      color: rgba(240,237,230,0.5);
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    #modal-close:hover {
+      border-color: rgba(240,237,230,0.5);
+      color: var(--text);
+    }
+
+    #modal-label {
+      font-family: var(--sans);
+      font-size: 0.64rem;
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    #modal-title {
+      font-family: var(--serif);
+      font-weight: 300;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      color: var(--text);
+      line-height: 1.1;
+    }
+
+    #modal-rule {
+      width: 100%;
+      height: 1px;
+      background: #7b1225;
+      border: none;
+      margin: 1.6rem 0;
+    }
+
+    #modal-body {
+      font-family: var(--sans);
+      font-size: 0.92rem;
+      font-weight: 300;
+      color: rgba(240,237,230,0.7);
+      line-height: 1.85;
+    }
+
+    #modal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    #modal-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .modal-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(240,237,230,0.55);
+      background: #0a1a30;
+      border: 1px solid rgba(240,237,230,0.15);
+      padding: 0.35rem 0.7rem;
+    }
+
+    #modal-link {
+      font-family: var(--sans);
+      font-size: 0.68rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text);
+      background: var(--accent);
+      border: 1px solid var(--accent);
+      padding: 0.6rem 1.2rem;
+      white-space: nowrap;
+      transition: background 0.2s, border-color 0.2s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    #modal-link:hover { background: #9a1830; border-color: #9a1830; }
+  </style>
+</head>
+<body>
+
+  <!-- ─── Nav ──────────────────────────────────────────────────────── -->
+  <nav id="nav">
+    <a href="#hero" class="nav-brand">Aayush Pande</a>
+    <ul class="nav-links">
+      <li><a href="#about"      data-section="about">About</a></li>
+      <li><a href="#projects"   data-section="projects">Projects</a></li>
+      <li><a href="#skills"     data-section="skills">Skills</a></li>
+      <li><a href="#leadership" data-section="leadership">Leadership</a></li>
+      <li><a href="#contact"    data-section="contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── Hero ─────────────────────────────────────────────────────── -->
+  <section id="hero" style="max-width:none; border-bottom: 1px solid var(--border); padding: 0;">
+    <div class="hero-inner">
+    
+      <h1 class="hero-name">
+        Aayush Pande
+      </h1>
+      <p class="hero-sub">Software · AI · Real Problems</p>
+    </div>
+    </div>
+  </section>
+
+  <!-- ─── About ────────────────────────────────────────────────────── -->
+  <div id="about" class="section-wrap">
+    <section>
+      <div class="section-number">01</div>
+      <h2 class="section-title">About</h2>
+      <div class="about-grid">
+        <div class="about-bio">
+          <p>I'm Aayush Pande, a 10th grader at Olentangy Liberty High School in Powell, Ohio. I build at the intersection of software and real problems.</p>
+          <p>That led me to build Espada, a 5-agent AI system helping small businesses navigate tariffs, and Vela, an AI co-pilot for virtual power plant operators which has earned a Z Fellows interview.</p>
+          <p>I wrestle competitively and built the weight management app my team actually uses (50+ people on it). I'm a Life Scout working toward Eagle, and have led my troop since 2021.</p>
+          <a href="Aayush Pande Resume (1).pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:2rem;font-family:var(--sans);font-size:0.72rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--text);border-bottom:1px solid var(--gold);padding-bottom:2px;transition:color 0.2s;">My Resume ↗</a>
+        </div>
+        <img src="hoco.png" alt="Aayush Pande" class="about-photo" />
+      </div>
+    </section>
+  </div>
+
+  <!-- ─── Projects ─────────────────────────────────────────────────── -->
+  <div id="projects" class="section-wrap">
+    <section>
+      <div class="section-number">02</div>
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+
+        <!-- Espada -->
+        <div class="project-card" data-modal="espada">
+          <div class="project-card-bg" style="background-image: url('hackathon.png'); background-size: cover; background-position: center;"></div>
+          <div class="project-card-overlay" style="background: rgba(5, 10, 25, 0.68);"></div>
+          <div class="project-card-top">
+            <span class="card-label">Founder · Agentic AI</span>
+            <a href="https://espada-tarrif-tracker22.vercel.app/" target="_blank" rel="noopener" class="card-link-btn" aria-label="Visit Espada">↗</a>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">Espada</h3>
+            <p class="project-desc">Real-time tariff tracking tool alerting small businesses to tariff changes and cheaper suppliers. 5-agent AI system. 4th place at ClaudeHacks OSU.</p>
+          </div>
+        </div>
+
+        <!-- Vela -->
+        <div class="project-card" data-modal="vela">
+          <div class="project-card-bg" style="background:#0b1220; overflow:hidden;">
+            <svg width="100%" height="100%" viewBox="0 0 185 210" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;">
+              <defs>
+                <style>
+                  @keyframes vnd  { 0%,100%{opacity:.15} 50%{opacity:.45} }
+                  @keyframes vnd2 { 0%,100%{opacity:.1}  50%{opacity:.35} }
+                  .vnd  { animation: vnd  3s ease-in-out infinite; }
+                  .vnd2 { animation: vnd2 4s ease-in-out infinite; }
+                </style>
+                <clipPath id="vela-clip"><rect x="0" y="0" width="185" height="210"/></clipPath>
+              </defs>
+              <rect x="0" y="0" width="185" height="210" fill="#0e1828"/>
+              <g clip-path="url(#vela-clip)">
+                <line x1="52" y1="68" x2="108" y2="52" stroke="#1D9E75" stroke-width="0.5" opacity=".4"/>
+                <line x1="108" y1="52" x2="148" y2="88" stroke="#1D9E75" stroke-width="0.5" opacity=".4"/>
+                <line x1="148" y1="88" x2="120" y2="130" stroke="#1D9E75" stroke-width="0.5" opacity=".4"/>
+                <line x1="120" y1="130" x2="52" y2="68" stroke="#1D9E75" stroke-width="0.5" opacity=".25"/>
+                <line x1="52" y1="68" x2="30" y2="110" stroke="#1D9E75" stroke-width="0.5" opacity=".3"/>
+                <line x1="30" y1="110" x2="72" y2="158" stroke="#1D9E75" stroke-width="0.5" opacity=".3"/>
+                <line x1="72" y1="158" x2="120" y2="130" stroke="#1D9E75" stroke-width="0.5" opacity=".35"/>
+                <line x1="148" y1="88" x2="170" y2="52" stroke="#1D9E75" stroke-width="0.5" opacity=".2"/>
+                <line x1="72" y1="158" x2="148" y2="162" stroke="#1D9E75" stroke-width="0.5" opacity=".2"/>
+                <line x1="108" y1="52" x2="90" y2="18" stroke="#1D9E75" stroke-width="0.5" opacity=".15"/>
+                <circle cx="52" cy="68" r="4" fill="#1D9E75" class="vnd" style="animation-delay:.4s"/>
+                <circle cx="52" cy="68" r="1.5" fill="#5DCAA5"/>
+                <circle cx="108" cy="52" r="5" fill="#1D9E75" class="vnd" style="animation-delay:.0s"/>
+                <circle cx="108" cy="52" r="2" fill="#9FE1CB"/>
+                <circle cx="148" cy="88" r="4" fill="#1D9E75" class="vnd" style="animation-delay:.8s"/>
+                <circle cx="148" cy="88" r="1.5" fill="#5DCAA5"/>
+                <circle cx="120" cy="130" r="8" fill="#1D9E75" class="vnd" style="animation-delay:.2s"/>
+                <circle cx="120" cy="130" r="3" fill="#E1F5EE"/>
+                <circle cx="30" cy="110" r="3" fill="#1D9E75" class="vnd2"/>
+                <circle cx="30" cy="110" r="1.2" fill="#5DCAA5"/>
+                <circle cx="72" cy="158" r="4" fill="#1D9E75" class="vnd" style="animation-delay:1.2s"/>
+                <circle cx="72" cy="158" r="1.5" fill="#5DCAA5"/>
+                <circle cx="170" cy="52" r="2.5" fill="#1D9E75" class="vnd2" style="animation-delay:.6s"/>
+                <circle cx="148" cy="162" r="2.5" fill="#1D9E75" class="vnd2" style="animation-delay:1s"/>
+                <circle cx="90" cy="18" r="2" fill="#1D9E75" opacity=".3"/>
+                <line x1="185" y1="0" x2="185" y2="210" stroke="#1D9E75" stroke-width="0.5" opacity=".2"/>
+              </g>
+            </svg>
+          </div>
+          <div class="project-card-overlay" style="background: rgba(5, 15, 12, 0.55);"></div>
+          <div class="project-card-top">
+            <span class="card-label">Co-Founder · Z Fellows Interview</span>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">Vela</h3>
+            <p class="project-desc">AI co-pilot for virtual power plant operators. Generates day-ahead dispatch strategies from fleet data, market prices, and weather forecasts. Co-building with an incoming Berkeley MET freshman.</p>
+          </div>
+        </div>
+
+        <!-- Wrestling Tracker -->
+        <div class="project-card" data-modal="wrestling-tracker">
+          <div class="project-card-bg" style="background-image: url('wrestlingapp.png'); background-size: cover; background-position: center top;"></div>
+          <div class="project-card-overlay" style="background: rgba(5, 8, 15, 0.72);"></div>
+          <div class="project-card-top">
+            <span class="card-label">Builder · 50+ Users</span>
+            <a href="https://wrestling-app-two.vercel.app/auth" target="_blank" rel="noopener" class="card-link-btn" aria-label="Visit Wrestling Tracker">↗</a>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">Wrestling Tracker</h3>
+            <p class="project-desc">Full-stack weight management platform for Pursuit Wrestling Club. React + FastAPI + Supabase. Scikit-learn models for weight prediction.</p>
+          </div>
+        </div>
+
+        <!-- SPAN -->
+        <div class="project-card" data-modal="span">
+          <div class="project-card-bg" style="background-image: url('span.png'); background-size: cover; background-position: center top;"></div>
+          <div class="project-card-overlay" style="background: rgba(8, 8, 20, 0.68);"></div>
+          <div class="project-card-top">
+            <span class="card-label">Non-Profit · 18 States</span>
+            <a href="https://spanationwide.org/" target="_blank" rel="noopener" class="card-link-btn" aria-label="Visit SPAN">↗</a>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">SPAN</h3>
+            <p class="project-desc">Built the database and website for Students for Patient Advocacy Nationwide. 50+ members, 1,500+ lawmakers engaged, 18 states.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- ─── Skills ────────────────────────────────────────────────────── -->
+  <div id="skills" class="section-wrap">
+    <section>
+      <div class="section-number">03</div>
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-col">
+          <div class="skill-col-label">Frontend</div>
+          <ul class="skill-list">
+            <li>React</li>
+            <li>Next.js</li>
+            <li>HTML / CSS / JS</li>
+            <li>Responsive Design</li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <div class="skill-col-label">Backend &amp; Data</div>
+          <ul class="skill-list">
+            <li>Python / FastAPI</li>
+            <li>Node.js</li>
+            <li>PostgreSQL / Supabase</li>
+            <li>REST APIs</li>
+          </ul>
+        </div>
+        <div class="skill-col">
+          <div class="skill-col-label">AI / ML</div>
+          <ul class="skill-list">
+            <li>LLMs &amp; AI Agents</li>
+            <li>Machine Learning</li>
+            <li>NLP</li>
+            <li>Scikit-learn</li>
+          </ul>
+        </div>
+      </div>
+     
+
+  <!-- ─── Leadership ────────────────────────────────────────────────── -->
+  <div id="leadership" class="section-wrap">
+    <section>
+      <div class="section-number">04</div>
+      <h2 class="section-title">Leadership</h2>
+      <div class="leadership-grid">
+
+        <!-- Wrestling -->
+        <div class="project-card" data-modal="wrestling">
+          <div class="project-card-bg" style="background-image: url('image.png'); background-size: cover; background-position: center top;"></div>
+          <div class="project-card-overlay" style="background: rgba(10, 5, 3, 0.68);"></div>
+          <div class="project-card-top">
+            <span class="card-label">Pursuit Wrestling Club & Olentangy Liberty High School Team</span>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">Wrestling</h3>
+            <p class="project-desc">Competitive athlete. Built a weight management app used by 50+ wrestlers. Discipline from early mornings and weight cuts carries into everything I build.</p>
+          </div>
+        </div>
+
+        <!-- Boy Scouts -->
+        <div class="project-card" data-modal="scouts">
+          <div class="project-card-bg" style="background-image: url('scouts.png'); background-size: cover; background-position: center;"></div>
+          <div class="project-card-overlay" style="background: rgba(5, 12, 5, 0.65);"></div>
+          <div class="project-card-top">
+            <span class="card-label">BSA Troop 428 · Life Scout</span>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">Boy Scouts of America</h3>
+            <p class="project-desc">Assistant Senior Patrol Leader, Troop Guide, and Patrol Leader since 2021. Eagle Scout project underway.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- ─── Contact ───────────────────────────────────────────────────── -->
+  <div id="contact" class="section-wrap" style="border-bottom: none;">
+    <section id="contact" style="border-bottom:none; max-width:1280px;">
+      <div class="eyebrow" style="justify-content:center;">Get in Touch</div>
+      <h2 class="contact-headline" style="margin-top:1.5rem;">
+        Let's build<br><em>something real.</em>
+      </h2>
+      <p class="contact-sub">Open to internships, collaborations, and conversations. Based in Ohio, building everywhere.</p>
+      <div class="contact-buttons">
+        <a href="mailto:aayushpande.220@gmail.com" class="btn btn-primary">Send Email</a>
+        <a href="https://github.com/" target="_blank" rel="noopener" class="btn">GitHub ↗</a>
+        <a href="https://linkedin.com/" target="_blank" rel="noopener" class="btn">LinkedIn ↗</a>
+      </div>
+    </section>
+  </div>
+
+  <!-- ─── Footer ────────────────────────────────────────────────────── -->
+  <footer>
+    <span>Aayush Pande — 2026</span>
+    <span>Powell, Ohio</span>
+  </footer>
+
+  <!-- ─── Modal ────────────────────────────────────────────────────── -->
+  <div id="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal">
+      <button id="modal-close" aria-label="Close modal">✕</button>
+      <div id="modal-label"></div>
+      <h2 id="modal-title"></h2>
+      <hr id="modal-rule" />
+      <p id="modal-body"></p>
+      <div id="modal-footer">
+        <div id="modal-tags"></div>
+        <a id="modal-link" target="_blank" rel="noopener">View Live ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─── Back to Top ───────────────────────────────────────────────── -->
+  <button id="back-top" aria-label="Back to top">↑</button>
+
+  <script>
+    // ── Nav active state via IntersectionObserver ──────────────────
+    const navLinks = document.querySelectorAll('#nav .nav-links a[data-section]');
+    const sectionWrappers = document.querySelectorAll('.section-wrap');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        navLinks.forEach(a => {
+          a.classList.toggle('active', a.dataset.section === id);
+        });
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sectionWrappers.forEach(wrap => observer.observe(wrap));
+
+    // ── Back to top ────────────────────────────────────────────────
+    const backTop = document.getElementById('back-top');
+    window.addEventListener('scroll', () => {
+      backTop.classList.toggle('visible', window.scrollY > 500);
+    }, { passive: true });
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // ── Modal ──────────────────────────────────────────────────────
+    const MODAL_DATA = {
+      espada: {
+        label: 'Founder · Agentic AI',
+        title: 'Espada',
+        tags: ['Python', 'React', 'AI Agents', 'FastAPI'],
+        body: 'Espada is a real-time tariff tracking tool that alerts small businesses and importers about tariff changes and helps them save money by switching suppliers. It runs a 5-agent AI system under the hood. Agents handle monitoring, supplier analysis, alerting, summarization, and customer communication. Built at ClaudeHacks OSU (Anthropic\'s hackathon), where it placed 4th. Currently partnered with a local granite business as the first design partner, with more businesses being onboarded.',
+        link: 'https://espada-tarrif-tracker22.vercel.app/',
+      },
+      vela: {
+        label: 'Co-Founder · Z Fellows Interview',
+        title: 'Vela',
+        tags: ['LLMs', 'Energy Tech', 'Python', 'AI'],
+        body: 'Vela is an AI co-pilot for virtual power plant operators. Operators upload their fleet data, market prices, and weather forecasts, and Vela generates a day-ahead dispatch strategy: how much to bid, when to dispatch, where the risk is, and why. Co-building with an incoming Berkeley MET freshman. Selected for a Z Fellows interview.',
+        link: null,
+      },
+      'wrestling-tracker': {
+        label: 'Builder · 50+ Users',
+        title: 'Wrestling Tracker',
+        tags: ['React', 'FastAPI', 'Supabase', 'Scikit-learn'],
+        body: 'A full-stack weight management platform built for Pursuit Wrestling Club. Wrestlers log their weight daily, and the app predicts cut trajectories using scikit-learn models. React frontend, FastAPI backend deployed on Fly.io, PostgreSQL via Supabase. Built because I needed it myself, and now used by 50+ wrestlers on the team.',
+        link: 'https://wrestling-app-two.vercel.app/auth',
+      },
+      span: {
+        label: 'Non-Profit · 18 States',
+        title: 'SPAN',
+        tags: ['Supabase', 'PostgreSQL', 'Full Stack'],
+        body: 'Students for Patient Advocacy Nationwide is a youth-led nonpartisan healthcare advocacy org. I built and now administer their database and website infrastructure: supporting 50+ members across the country, engagement with 1,500+ lawmakers, and operations in 18 states.',
+        link: 'https://spanationwide.org/',
+      },
+      wrestling: {
+        label: 'Pursuit Wrestling Club',
+        title: 'Wrestling',
+        tags: ['Leadership', 'Discipline'],
+        body: 'Competitive wrestler at Pursuit Wrestling Club. Wrestling at 113 lbs, District Qualifier. Wrestling means cutting weight at 5am, making weight on the day, and performing under pressure. That discipline and the ability to commit to something hard and follow through regardless of how you feel, is what I bring to every project I build.',
+        link: null,
+      },
+      scouts: {
+        label: 'BSA Troop 428 · Life Scout',
+        title: 'Boy Scouts of America',
+        tags: ['Leadership', 'Service', 'Eagle Project'],
+        body: 'Life Scout in BSA Troop 428, with an Eagle Scout project currently underway. I\'ve held three leadership roles: Patrol Leader, Troop Guide, and Assistant Senior Patrol Leader (since April 2021). Scouting taught me how to lead people who didn\'t have to follow me, which is the hardest kind of leadership there is.',
+        link: null,
+      },
+    };
+
+    const backdrop  = document.getElementById('modal-backdrop');
+    const modalEl   = document.getElementById('modal');
+    const closeBtn  = document.getElementById('modal-close');
+    const elLabel   = document.getElementById('modal-label');
+    const elTitle   = document.getElementById('modal-title');
+    const elBody    = document.getElementById('modal-body');
+    const elTags    = document.getElementById('modal-tags');
+    const elLink    = document.getElementById('modal-link');
+
+    function openModal(key) {
+      const d = MODAL_DATA[key];
+      if (!d) return;
+
+      elLabel.textContent = d.label;
+      elTitle.textContent = d.title;
+      elBody.textContent  = d.body;
+
+      elTags.innerHTML = d.tags.map(t => `<span class="modal-tag">${t}</span>`).join('');
+
+      if (d.link) {
+        elLink.href = d.link;
+        elLink.style.display = 'inline-flex';
+      } else {
+        elLink.style.display = 'none';
+      }
+
+      document.body.style.overflow = 'hidden';
+      backdrop.classList.add('open');
+      closeBtn.focus();
+    }
+
+    function closeModal() {
+      backdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('[data-modal]').forEach(card => {
+      card.addEventListener('click', (e) => {
+        // Don't open modal when clicking the external link button on the card
+        if (e.target.closest('.card-link-btn')) return;
+        openModal(card.dataset.modal);
+      });
+    });
+
+    closeBtn.addEventListener('click', closeModal);
+
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && backdrop.classList.contains('open')) closeModal();
+    });
+  </script>
+
+</body>
+</html>
