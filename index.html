@@ -744,6 +744,7 @@
     <a href="#hero" class="nav-brand">Aayush Pande</a>
     <ul class="nav-links">
       <li><a href="#about"      data-section="about">About</a></li>
+      <li><a href="#work"       data-section="work">Work</a></li>
       <li><a href="#projects"   data-section="projects">Projects</a></li>
       <li><a href="#skills"     data-section="skills">Skills</a></li>
       <li><a href="#leadership" data-section="leadership">Leadership</a></li>
@@ -780,24 +781,39 @@
     </section>
   </div>
 
-  <!-- ─── Projects ─────────────────────────────────────────────────── -->
-  <div id="projects" class="section-wrap">
+  <!-- ─── Work Experience ──────────────────────────────────────────── -->
+  <div id="work" class="section-wrap">
     <section>
       <div class="section-number">02</div>
-      <h2 class="section-title">Projects</h2>
+      <h2 class="section-title">Work Experience</h2>
       <div class="projects-grid">
 
-        <!-- Espada -->
-        <div class="project-card" data-modal="espada">
-          <div class="project-card-bg" style="background-image: url('hackathon.png'); background-size: cover; background-position: center;"></div>
-          <div class="project-card-overlay" style="background: rgba(5, 10, 25, 0.68);"></div>
+        <!-- Stone Mart -->
+        <div class="project-card" data-modal="stonemart">
+          <div class="project-card-bg" style="background:#0d1a14; overflow:hidden;">
+            <svg width="100%" height="100%" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" style="position:absolute;inset:0;width:100%;height:100%;">
+              <rect width="400" height="300" fill="#0d1a14"/>
+              <rect x="0" y="0" width="400" height="300" fill="url(#stone-grad)"/>
+              <defs>
+                <linearGradient id="stone-grad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#1a2e1e" stop-opacity="1"/>
+                  <stop offset="100%" stop-color="#0a1208" stop-opacity="1"/>
+                </linearGradient>
+              </defs>
+              <line x1="60" y1="40" x2="340" y2="260" stroke="#4a7c59" stroke-width="0.4" opacity=".25"/>
+              <line x1="0" y1="120" x2="400" y2="180" stroke="#4a7c59" stroke-width="0.4" opacity=".2"/>
+              <line x1="100" y1="0" x2="280" y2="300" stroke="#4a7c59" stroke-width="0.4" opacity=".15"/>
+              <line x1="200" y1="30" x2="160" y2="270" stroke="#4a7c59" stroke-width="0.3" opacity=".2"/>
+              <line x1="30" y1="200" x2="370" y2="100" stroke="#4a7c59" stroke-width="0.3" opacity=".15"/>
+            </svg>
+          </div>
+          <div class="project-card-overlay" style="background: rgba(5, 14, 8, 0.6);"></div>
           <div class="project-card-top">
-            <span class="card-label">Founder · Agentic AI</span>
-            <a href="https://espada-tarrif-tracker22.vercel.app/" target="_blank" rel="noopener" class="card-link-btn" aria-label="Visit Espada">↗</a>
+            <span class="card-label">Product Design Engineer · Contract · 2026</span>
           </div>
           <div class="project-card-body">
-            <h3 class="project-title">Espada</h3>
-            <p class="project-desc">Real-time tariff tracking tool alerting small businesses to tariff changes and cheaper suppliers. 5-agent AI system. 4th place at ClaudeHacks OSU.</p>
+            <h3 class="project-title">Stone Mart, LLC</h3>
+            <p class="project-desc">End-to-end product discovery and full-stack AI solutions for B2B stone and granite importers. Multi-agent pipeline for real-time signal detection, cost modeling, and scenario analysis.</p>
           </div>
         </div>
 
@@ -847,25 +863,11 @@
           </div>
           <div class="project-card-overlay" style="background: rgba(5, 15, 12, 0.55);"></div>
           <div class="project-card-top">
-            <span class="card-label">Co-Founder · Z Fellows Interview</span>
+            <span class="card-label">Forward Deployed Engineer · Z Fellows Accelerator</span>
           </div>
           <div class="project-card-body">
             <h3 class="project-title">Vela</h3>
             <p class="project-desc">AI co-pilot for virtual power plant operators. Generates day-ahead dispatch strategies from fleet data, market prices, and weather forecasts. Co-building with an incoming Berkeley MET freshman.</p>
-          </div>
-        </div>
-
-        <!-- Wrestling Tracker -->
-        <div class="project-card" data-modal="wrestling-tracker">
-          <div class="project-card-bg" style="background-image: url('wrestlingapp.png'); background-size: cover; background-position: center top;"></div>
-          <div class="project-card-overlay" style="background: rgba(5, 8, 15, 0.72);"></div>
-          <div class="project-card-top">
-            <span class="card-label">Builder · 50+ Users</span>
-            <a href="https://wrestling-app-two.vercel.app/auth" target="_blank" rel="noopener" class="card-link-btn" aria-label="Visit Wrestling Tracker">↗</a>
-          </div>
-          <div class="project-card-body">
-            <h3 class="project-title">Wrestling Tracker</h3>
-            <p class="project-desc">Full-stack weight management platform for Pursuit Wrestling Club. React + FastAPI + Supabase. Scikit-learn models for weight prediction.</p>
           </div>
         </div>
 
@@ -880,20 +882,6 @@
           <div class="project-card-body">
             <h3 class="project-title">SPAN</h3>
             <p class="project-desc">Built the database and website for Students for Patient Advocacy Nationwide. 50+ members, 1,500+ lawmakers engaged, 18 states.</p>
-          </div>
-        </div>
-
-        <!-- Aetheros -->
-        <div class="project-card" data-modal="aetheros">
-          <div class="project-card-bg" style="background-image: url('aetheros.png'); background-size: cover; background-position: center;"></div>
-          <div class="project-card-overlay" style="background: rgba(5, 8, 18, 0.62);"></div>
-          <div class="project-card-top">
-            <span class="card-label">Builder · 3D Visualization</span>
-            <a href="https://aetheros.vercel.app/" target="_blank" rel="noopener" class="card-link-btn" aria-label="Visit Aetheros">↗</a>
-          </div>
-          <div class="project-card-body">
-            <h3 class="project-title">Aetheros</h3>
-            <p class="project-desc">Immersive 3D weather visualization platform. Three.js particle systems, FastAPI backend, live geospatial data. Deployed to production.</p>
           </div>
         </div>
 
@@ -915,10 +903,63 @@
     </section>
   </div>
 
+  <!-- ─── Projects ─────────────────────────────────────────────────── -->
+  <div id="projects" class="section-wrap">
+    <section>
+      <div class="section-number">03</div>
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+
+        <!-- Espada -->
+        <div class="project-card" data-modal="espada">
+          <div class="project-card-bg" style="background-image: url('hackathon.png'); background-size: cover; background-position: center;"></div>
+          <div class="project-card-overlay" style="background: rgba(5, 10, 25, 0.68);"></div>
+          <div class="project-card-top">
+            <span class="card-label">Founder · Agentic AI</span>
+            <a href="https://espada-tarrif-tracker22.vercel.app/" target="_blank" rel="noopener" class="card-link-btn" aria-label="Visit Espada">↗</a>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">Espada</h3>
+            <p class="project-desc">Real-time tariff tracking tool alerting small businesses to tariff changes and cheaper suppliers. 5-agent AI system. 4th place at ClaudeHacks OSU.</p>
+          </div>
+        </div>
+
+        <!-- Wrestling Tracker -->
+        <div class="project-card" data-modal="wrestling-tracker">
+          <div class="project-card-bg" style="background-image: url('wrestlingapp.png'); background-size: cover; background-position: center top;"></div>
+          <div class="project-card-overlay" style="background: rgba(5, 8, 15, 0.72);"></div>
+          <div class="project-card-top">
+            <span class="card-label">Solo-Developer · 50+ Users</span>
+            <a href="https://wrestling-app.pages.dev/" target="_blank" rel="noopener" class="card-link-btn" aria-label="Visit Wrestling Tracker">↗</a>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">Kilo</h3>
+            <p class="project-desc">AI-powered weight cut coach for wrestlers: mobile app, web dashboard, and a personalized coaching agent built on Claude. 50+ on the waitlist</p>
+          </div>
+        </div>
+
+        <!-- Aetheros -->
+        <div class="project-card" data-modal="aetheros">
+          <div class="project-card-bg" style="background-image: url('aetheros.png'); background-size: cover; background-position: center;"></div>
+          <div class="project-card-overlay" style="background: rgba(5, 8, 18, 0.62);"></div>
+          <div class="project-card-top">
+            <span class="card-label">Builder · 3D Visualization</span>
+            <a href="https://aetheros.vercel.app/" target="_blank" rel="noopener" class="card-link-btn" aria-label="Visit Aetheros">↗</a>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">Aetheros</h3>
+            <p class="project-desc">Immersive 3D weather visualization platform. Three.js particle systems, FastAPI backend, live geospatial data. Deployed to production.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
   <!-- ─── Skills ────────────────────────────────────────────────────── -->
   <div id="skills" class="section-wrap">
     <section>
-      <div class="section-number">03</div>
+      <div class="section-number">04</div>
       <h2 class="section-title">Skills</h2>
       <div class="skills-grid">
         <div class="skill-col">
@@ -954,7 +995,7 @@
   <!-- ─── Leadership ────────────────────────────────────────────────── -->
   <div id="leadership" class="section-wrap">
     <section>
-      <div class="section-number">04</div>
+      <div class="section-number">05</div>
       <h2 class="section-title">Leadership</h2>
       <div class="leadership-grid">
 
@@ -1054,6 +1095,13 @@
 
     // ── Modal ──────────────────────────────────────────────────────
     const MODAL_DATA = {
+      stonemart: {
+        label: 'Product Design Engineer · Contract',
+        title: 'Stone Mart, LLC',
+        tags: ['React', 'FastAPI', 'Supabase', 'AI Agents', 'Product Design'],
+        body: 'Product Design Engineer on contract at Stone Mart LLC, a B2B stone and granite importer based in the Columbus, Ohio area. Conducting end-to-end product discovery with real customers — interviewing logistics managers, sales teams, and accounting departments to map operational pain points and translate them into actionable product requirements.\n\nDesigning and building full-stack software with React, FastAPI, and Supabase, with a multi-agent AI pipeline handling real-time signal detection, cost modeling, and scenario analysis in parallel. Validating solutions across supply chain, accounting, and outbound sales workflows.',
+        link: null,
+      },
       espada: {
         label: 'Founder · Agentic AI',
         title: 'Espada',
