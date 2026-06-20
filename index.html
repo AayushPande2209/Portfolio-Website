@@ -936,6 +936,20 @@
           </div>
         </div>
 
+        <!-- DisinfoTrack -->
+        <div class="project-card" data-modal="disinfotrack">
+          <div class="project-card-bg" style="background: #1a0f1a;"></div>
+          <div class="project-card-overlay" style="background: rgba(15, 5, 18, 0.55);"></div>
+          <div class="project-card-top">
+            <span class="card-label">Research · NLP</span>
+            <a href="https://github.com/AayushPande2209/DisinfoTrack" target="_blank" rel="noopener" class="card-link-btn" aria-label="View DisinfoTrack on GitHub">↗</a>
+          </div>
+          <div class="project-card-body">
+            <h3 class="project-title">DisinfoTrack</h3>
+            <p class="project-desc">Independent NLP research on how misinformation claims evolve in language while preserving meaning. Found claims scoring 0.19 on surface-text similarity scored 0.83+ on semantic similarity.</p>
+          </div>
+        </div>
+
       </div>
     </section>
   </div>
@@ -1127,6 +1141,13 @@
         tags: ['Three.js', 'FastAPI', 'Python', 'Vercel', 'Open-Meteo', 'Mapbox'],
         body: 'Aetheros is a full-stack 3D weather platform that transforms geospatial forecast data into immersive real-time experiences. Built a Three.js rendering engine with custom particle systems for atmospheric phenomena like rain, wind, and storm fronts. FastAPI backend handles real-time data orchestration and in-memory caching. Aggregates data from Open-Meteo, Nominatim, and Mapbox. Deployed to production on Vercel.',
         link: 'black-box-hackathon.vercel.app',
+      },
+      disinfotrack: {
+        label: 'Research · NLP',
+        title: 'DisinfoTrack',
+        tags: ['Python', 'NLP', 'Sentence Transformers', 'scikit-learn', 'spaCy'],
+        body: 'DisinfoTrack is an independent research project analyzing how misinformation claims evolve linguistically over time while preserving their underlying meaning. Built a pipeline combining sentence-transformer embeddings with dependency parsing to extract subject-predicate-object triples and measure claim equivalence. Key finding: claims that scored just 0.19 on surface-text (TF-IDF) similarity scored 0.83+ on semantic embedding similarity, vocabulary changes mask underlying continuity in how false claims spread. Currently building a Random Forest classifier to predict category-specific drift patterns. Corresponded with Dr. Micha Elsner (OSU Linguistics) on findings.',
+        link: 'https://github.com/AayushPande2209/DisinfoTrack',
       },
       medbridge: {
         label: 'Technology Lead · Central Ohio',
